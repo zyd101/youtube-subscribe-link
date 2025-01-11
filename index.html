@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscribe to YouTube Anonymously</title>
+</head>
+<body>
+  <h1>Click the link to subscribe to YouTube anonymously!</h1>
+  <a href="javascript:void(0);" onclick="subscribeAnonymously();">Subscribe Now</a>
+
+  <script>
+    function subscribeAnonymously() {
+      // Simulate a click on the YouTube subscribe button
+      var subscribeButton = document.createElement('a');
+      subscribeButton.href = 'https://www.youtube.com/channel/zyd.station'; // Replace with the actual channel ID
+      subscribeButton.target = '_blank';
+      subscribeButton.click();
+
+      // Send a request to a PHP script to subscribe anonymously
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'subscribe.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          alert('Subscribed anonymously!');
+        } else {
+          alert('An error occurred while subscribing anonymously.');
+        }
+      };
+      xhr.send('channel_id=zyd.station'); // Replace with the actual channel ID
+    }
+  </script>
+</body>
+</html>
